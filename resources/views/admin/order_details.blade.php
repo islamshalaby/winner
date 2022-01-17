@@ -84,6 +84,16 @@
                             </td>
                         </tr>
                         <tr>
+                            <td class="label-table" > {{ __('messages.coupons') }}</td>
+                            <td>
+                                @if (count($data['order']->coupons) > 0)
+                                    @foreach ($data['order']->coupons as $coupon)
+                                    <span class="badge outline-badge-primary">{{ $coupon->coupon_number }}</span> <br/>
+                                    @endforeach
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
                             <td class="label-table" > {{ __('messages.order_status') }}</td>
                             <td style="color : {{ $data['order']['delivered'] == 1 ? "green" : "red" }}" >
                                  {{ $data['order']['delivered'] == 1 ? __('messages.delivered') : __('messages.not_delivered') }} 
@@ -113,16 +123,6 @@
             <div class="table-responsive"> 
                 <table class="table table-bordered mb-4">
                     <tbody>
-                        <tr>
-                            <td class="label-table" > {{ __('messages.coupons') }}</td>
-                            <td>
-                                @if (count($data['order']->coupons) > 0)
-                                    @foreach ($data['order']->coupons as $coupon)
-                                    <span class="badge outline-badge-primary">{{ $coupon->coupon_number }}</span> <br/>
-                                    @endforeach
-                                @endif
-                            </td>
-                        </tr>
                         <tr>
                             <td class="label-table" > {{ __('messages.address_name') }}</td>
                             <td>
