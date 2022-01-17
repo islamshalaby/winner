@@ -15,7 +15,6 @@ class OrderController extends AdminController{
     // get all orders
     public function show(){
         $data['orders'] = Order::with(['coupons', 'user', 'product'])->orderBy('id' , 'desc')->get();
-        
         return view('admin.orders' ,['data' => $data]);
     }
 
